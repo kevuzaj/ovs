@@ -57,4 +57,3 @@ notifications:
   email:
     recipients:
       - ktraynor@redhat.com
-      - nitin.katiyar@ericsson.com
