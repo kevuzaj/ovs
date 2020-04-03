@@ -66,7 +66,7 @@ function install_kernel()
 function install_dpdk()
 {
     if [ "${1##refs/*/}" != "${1}" ]; then
-        DPDK_GIT=${DPDK_GIT:-https://dpdk.org/git/dpdk}
+        DPDK_GIT=${DPDK_GIT:-https://dpdk.org/git/dpdk-stable}
         git clone --single-branch $DPDK_GIT dpdk-git -b "${1##refs/*/}"
         cd dpdk-git
         git log -1 --oneline
@@ -105,7 +105,7 @@ fi
 
 if [ "$DPDK" ] || [ "$DPDK_SHARED" ]; then
     if [ -z "$DPDK_VER" ]; then
-        DPDK_VER="18.11.6"
+        DPDK_VER="refs/tags/v18.11.7-rc1"
     fi
     install_dpdk $DPDK_VER
     if [ "$CC" = "clang" ]; then
